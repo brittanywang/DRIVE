@@ -1,8 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import App from './App';
+import {YelpAPI} from './api';  
+import { Router, browserHistory, Route, Link } from 'react-router';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+render((
+  <Router history={browserHistory}>
+    <Route exact path="/" component={App}/>
+    <Route exact path="/api" component={YelpAPI}/>
+  </Router>
+), document.getElementById('root'))
